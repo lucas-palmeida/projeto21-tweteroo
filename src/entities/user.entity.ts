@@ -7,7 +7,7 @@ export class User {
         this._avatar = avatar;
     };
 
-    get username(): string {
+    public get username(): string {
         return this._username;
     };
 
