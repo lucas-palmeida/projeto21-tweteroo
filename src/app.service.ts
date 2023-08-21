@@ -14,12 +14,12 @@ export class AppService {
     // Fazer a instanciação dos users e tweets dentro dos arrays;
   }
 
+  getHealth(): string {
+    return "I'm okay!";
+  }
+
   signUp(body: SignUpUserDTO) {
     const user = new User(body.username, body.avatar);
     return this.users.push(user);
-  }
-
-  getHello(): string {
-    return 'Hello World!';
   }
 }

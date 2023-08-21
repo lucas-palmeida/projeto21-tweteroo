@@ -6,18 +6,18 @@ import { SignUpUserDTO } from './dto/user.dto';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Post("/sign-up")
+  @Get()
+  getHealth(): string {
+    return this.appService.getHealth();
+  }
+
+  @Post('sign-up')
   @HttpCode(HttpStatus.OK)
   signUp(@Body() body: SignUpUserDTO) {
     try {
       return this.appService.signUp(body);
     } catch (error) {
-      throw new HttpException(error.message, error.status);
+      throw new HttpException("All fields are required!", error.status);
     }
-  }
-
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
   }
 }

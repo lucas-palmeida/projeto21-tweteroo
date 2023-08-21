@@ -1,11 +1,17 @@
 import { IsNotEmpty, IsString, IsUrl } from "class-validator";
 
 export class SignUpUserDTO {
-    @IsString()
-    @IsNotEmpty()
+    @IsString({
+        message: "All fields are required!",
+    })
+    @IsNotEmpty({
+        message: "All fields are required!",
+    })
     username: string;
 
     @IsUrl()
-    @IsNotEmpty()
+    @IsNotEmpty({
+        message: "All fields are required!",
+    })
     avatar: string;
 }
